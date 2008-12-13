@@ -3324,6 +3324,8 @@ void deinit_program(void)
 	__dpmi_regs regs;
 #endif
 
+	exit_fullscreen();
+
 	dj_stop();
 	dj_free_mod(MOD_MENU);
 	dj_free_mod(MOD_GAME);
@@ -3338,7 +3340,6 @@ void deinit_program(void)
 		free(mask_pic);
 
 	remove_keyb_handler();
-	exit_fullscreen();
 
 #ifdef DOS
 	regs.x.ax = 0x3;
